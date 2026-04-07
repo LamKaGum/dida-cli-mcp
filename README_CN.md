@@ -28,17 +28,12 @@
 
 ## 📦 安装
 
-### 方式一：OpenClaw（一句话安装）
+### 方式一：OpenClaw
+
+从源码安装技能 https://github.com/LamKaGum/dida-cli-mcp
 
 ```bash
-# 从源码安装技能 https://github.com/LamKaGum/dida-cli-mcp
 clawhub install https://github.com/LamKaGum/dida-cli-mcp
-```
-
-或添加到 OpenClaw 技能：
-```bash
-# 从源码安装技能 https://github.com/LamKaGum/dida-cli-mcp
-openclaw skills add dida-cli-mcp --from https://github.com/LamKaGum/dida-cli-mcp
 ```
 
 ### 方式二：NPM

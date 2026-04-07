@@ -28,17 +28,12 @@
 
 ## 📦 Installation
 
-### Option 1: OpenClaw (One-line install)
+### Option 1: OpenClaw
+
+Install skill from source https://github.com/LamKaGum/dida-cli-mcp
 
 ```bash
-# Install skill from source https://github.com/LamKaGum/dida-cli-mcp
 clawhub install https://github.com/LamKaGum/dida-cli-mcp
-```
-
-Or add to your OpenClaw skills:
-```bash
-# Install skill from source https://github.com/LamKaGum/dida-cli-mcp
-openclaw skills add dida-cli-mcp --from https://github.com/LamKaGum/dida-cli-mcp
 ```
 
 ### Option 2: NPM
