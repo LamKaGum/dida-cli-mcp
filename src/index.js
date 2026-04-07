@@ -6,7 +6,7 @@ import { getAccessToken } from './lib/auth.js';
 program
     .name('dida')
     .description('DIDA CLI – 在终端管理滴答清单的任务与清单')
-    .version('0.1.1')
+    .version('0.1.2')
     .option('--json', '以 JSON 输出（全局默认，会传递给子命令）');
 
 // 帮助指令 - 显示所有功能
