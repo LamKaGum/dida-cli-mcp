@@ -1,6 +1,7 @@
 {
   "name": "dida-cli-mcp",
   "version": "0.1.1",
+  "type": "module",
   "description": "TickTick Command Line Tool - MCP Extended Edition with task reminders, batch operations, and smart search",
   "main": "src/index.js",
   "bin": {
@@ -13,7 +14,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "node -e \"console.log('\\n🎉 dida-cli-mcp 安装完成！\\n\\n快速开始：\\n  1. dida auth login    - 登录（OAuth 或 Token）\\n  2. dida task list     - 查看任务列表\\n  3. dida help          - 查看所有功能\\n')\""
   },
   "keywords": [
     "ticktick",
