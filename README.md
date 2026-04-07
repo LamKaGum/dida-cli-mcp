@@ -493,8 +493,3 @@ Based on [suibiji/dida-cli](https://github.com/suibiji/dida-cli) © 2024 suibiji
 <p align="center">
   Made with ❤️ by the community
 </p>
-center">
-  Made with ❤️ by the community
-</p>
-community
-</p>
