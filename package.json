@@ -1,6 +1,6 @@
 {
   "name": "dida-cli-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "TickTick Command Line Tool - MCP Extended Edition with task reminders, batch operations, and smart search",
   "main": "src/index.js",
