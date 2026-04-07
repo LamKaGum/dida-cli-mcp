@@ -1,7 +1,7 @@
 # Dida CLI MCP Edition
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.1.3--mcp-blue" alt="version">
+  <img src="https://img.shields.io/badge/version-0.1.1-blue" alt="version">
   <img src="https://img.shields.io/badge/node-%3E%3D18-green" alt="node">
   <img src="https://img.shields.io/badge/license-MIT-yellow" alt="license">
 </p>
