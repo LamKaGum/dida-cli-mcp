@@ -1,7 +1,7 @@
 # Dida CLI MCP Edition
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.1.1-blue" alt="version">
+  <img src="https://img.shields.io/badge/version-0.1.2-blue" alt="version">
   <img src="https://img.shields.io/badge/node-%3E%3D18-green" alt="node">
   <img src="https://img.shields.io/badge/license-MIT-yellow" alt="license">
 </p>
@@ -52,18 +52,49 @@ npm link
 ```bash
 dida --version
 dida --help
+dida help          # 显示所有功能和使用指南
+```
+
+安装完成后将显示快速入门指引：
+```
+🎉 dida-cli-mcp 安装完成！
+
+快速开始：
+  1. dida auth login    - 登录（OAuth 或 Token）
+  2. dida task list     - 查看任务列表
+  3. dida help          - 查看所有功能
 ```
 
 ---
 
 ## 🔐 认证
 
-使用 OAuth PKCE 流程登录：
+支持两种登录方式：
+
+### 方式一：OAuth 登录（推荐）
+适用于本地开发，有浏览器环境：
 
 ```bash
-# 启动登录流程（会自动打开浏览器）
+# 启动 OAuth 登录流程（会自动打开浏览器）
 dida auth login
+# 选择选项 1: OAuth 登录
+```
 
+### 方式二：Token 登录（服务器适用）
+适用于服务器或无浏览器环境：
+
+```bash
+# 交互式 Token 登录
+dida auth login
+# 选择选项 2: Token 登录
+
+# 或直接带参数使用
+dida auth login --token
+```
+
+### 其他认证命令
+
+```bash
 # 查看登录状态
 dida auth status
 
@@ -132,9 +163,16 @@ dida task batch-create \
 
 | 命令 | 说明 |
 |------|------|
-| `dida auth login` | OAuth 登录 |
+| `dida auth login` | 登录（支持 OAuth 或 Token） |
+| `dida auth login --token` | Token 方式登录（服务器适用） |
 | `dida auth status` | 查看登录状态 |
 | `dida auth logout` | 退出登录 |
+
+### 帮助命令
+
+| 命令 | 说明 |
+|------|------|
+| `dida help` | 显示所有功能和使用示例 |
 
 ### 清单命令
 

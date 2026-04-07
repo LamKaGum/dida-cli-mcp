@@ -1,7 +1,7 @@
 # Dida CLI MCP Edition
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.1.1-blue" alt="version">
+  <img src="https://img.shields.io/badge/version-0.1.2-blue" alt="version">
   <img src="https://img.shields.io/badge/node-%3E%3D18-green" alt="node">
   <img src="https://img.shields.io/badge/license-MIT-yellow" alt="license">
 </p>
@@ -52,18 +52,49 @@ npm link
 ```bash
 dida --version
 dida --help
+dida help          # Show all features and usage guide
+```
+
+After installation, you'll see a quick start guide:
+```
+🎉 dida-cli-mcp installed successfully!
+
+Quick Start:
+  1. dida auth login    - Login (OAuth or Token)
+  2. dida task list     - View task list
+  3. dida help          - View all features
 ```
 
 ---
 
 ## 🔐 Authentication
 
-Login using OAuth PKCE flow:
+Two login methods are supported:
+
+### Option 1: OAuth Login (Recommended)
+For local development with browser:
 
 ```bash
-# Start login flow (opens browser automatically)
+# Start OAuth login flow (opens browser automatically)
 dida auth login
+# Select option 1: OAuth Login
+```
 
+### Option 2: Token Login (For Servers)
+For servers or environments without browser:
+
+```bash
+# Interactive token login
+dida auth login
+# Select option 2: Token Login
+
+# Or directly use token flag
+dida auth login --token
+```
+
+### Other Auth Commands
+
+```bash
 # Check login status
 dida auth status
 
@@ -132,9 +163,16 @@ dida task batch-create \
 
 | Command | Description |
 |---------|-------------|
-| `dida auth login` | OAuth login |
+| `dida auth login` | Login (OAuth or Token) |
+| `dida auth login --token` | Token login for servers |
 | `dida auth status` | Check login status |
 | `dida auth logout` | Logout |
+
+### Help Command
+
+| Command | Description |
+|---------|-------------|
+| `dida help` | Show all features and usage examples |
 
 ### Project Commands
 
