@@ -31,7 +31,7 @@
 ### 全局安装
 
 ```bash
-npm install -g @suibiji/dida-cli
+npm install -g dida-cli-mcp
 ```
 
 ### 验证安装
@@ -466,7 +466,7 @@ dida task update "task-id" \
 ## 🙏 致谢
 
 - [滴答清单](https://dida365.com) - 优秀的任务管理工具
-- [MCP 服务](https://mcp.dida365.com) - 提供强大的 API 支持
+- [suibiji](https://github.com/suibiji) - dida365 CLI 原作者
 
 ---
 

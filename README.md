@@ -31,7 +31,7 @@
 ### Global Installation
 
 ```bash
-npm install -g @suibiji/dida-cli
+npm install -g dida-cli-mcp
 ```
 
 ### Verify Installation
@@ -466,7 +466,7 @@ Based on [suibiji/dida-cli](https://github.com/suibiji/dida-cli) © 2024 suibiji
 ## 🙏 Acknowledgments
 
 - [TickTick](https://dida365.com) - Excellent task management tool
-- [MCP Service](https://mcp.dida365.com) - Powerful API support
+- [suibiji](https://github.com/suibiji) - Original author of dida365 CLI
 
 ---
 
