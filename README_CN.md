@@ -11,6 +11,8 @@
   完整的 MCP 服务集成，支持任务提醒、批量操作、智能搜索
 </p>
 
+> **📌 基于 [suibiji/dida-cli](https://github.com/suibiji/dida-cli) 开发** - MCP 扩展版，完整支持提醒功能和批量操作
+
 ---
 
 ## ✨ 核心特性
@@ -455,7 +457,9 @@ dida task update "task-id" \
 
 ## 📄 许可证
 
-[MIT](LICENSE) © 2024 suibiji
+[MIT](LICENSE) © 2026 LamKaGum
+
+基于 [suibiji/dida-cli](https://github.com/suibiji/dida-cli) © 2024 suibiji
 
 ---
 

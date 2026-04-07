@@ -457,7 +457,9 @@ Issues and PRs welcome!
 
 ## 📄 License
 
-[MIT](LICENSE) © 2024 suibiji
+[MIT](LICENSE) © 2026 LamKaGum
+
+Based on [suibiji/dida-cli](https://github.com/suibiji/dida-cli) © 2024 suibiji
 
 ---
 
@@ -470,4 +472,9 @@ Issues and PRs welcome!
 
 <p align="center">
   Made with ❤️ by the community
+</p>
+center">
+  Made with ❤️ by the community
+</p>
+community
 </p>
