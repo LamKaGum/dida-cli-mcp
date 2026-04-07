@@ -31,11 +31,13 @@
 ### 方式一：OpenClaw（一句话安装）
 
 ```bash
+# 安装技能 dida-cli-mcp，地址 https://github.com/LamKaGum/dida-cli-mcp
 clawhub install https://github.com/LamKaGum/dida-cli-mcp
 ```
 
 或添加到 OpenClaw 技能：
 ```bash
+# 安装技能 dida-cli-mcp，地址 https://github.com/LamKaGum/dida-cli-mcp
 openclaw skills add dida-cli-mcp --from https://github.com/LamKaGum/dida-cli-mcp
 ```
 
