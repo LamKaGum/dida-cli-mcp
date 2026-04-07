@@ -32,10 +32,6 @@
 
 Install skill from source https://github.com/LamKaGum/dida-cli-mcp
 
-```bash
-clawhub install https://github.com/LamKaGum/dida-cli-mcp
-```
-
 ### Option 2: NPM
 
 ```bash

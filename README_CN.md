@@ -32,10 +32,6 @@
 
 从源码安装技能 https://github.com/LamKaGum/dida-cli-mcp
 
-```bash
-clawhub install https://github.com/LamKaGum/dida-cli-mcp
-```
-
 ### 方式二：NPM
 
 ```bash
