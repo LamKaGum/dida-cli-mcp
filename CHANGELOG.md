@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.1.3-mcp] - 2026-04-07
+## [0.1.2-mcp] - 2026-04-07
 
 ### Added
 - **MCP Service Integration** - Full support for TickTick MCP service API
