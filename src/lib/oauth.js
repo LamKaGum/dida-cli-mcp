@@ -3,7 +3,7 @@ import { OAUTH_REDIRECT_URI } from './oauth-server.js';
 const OAUTH_AUTHORIZE_URL = 'https://dida365.com/oauth/authorize';
 const OAUTH_TOKEN_URL = 'https://dida365.com/oauth/token';
 const OAUTH_SCOPES = 'tasks:write tasks:read';
-const CLIENT_ID = 'CDdSp01UXew5G8MwI4';
+const CLIENT_ID = 'qhV5X51Ek4koYGzxeQ';
 export function generatePkceChallenge() {
     const codeVerifier = randomBytes(32).toString('base64url');
     const codeChallenge = createHash('sha256').update(codeVerifier).digest('base64url');
