@@ -30,7 +30,7 @@
 
 ### Option 1: OpenClaw
 
-Install skill from source https://github.com/LamKaGum/dida-cli-mcp
+Install skill https://github.com/LamKaGum/dida-cli-mcp/blob/main/skill.json
 
 ### Option 2: NPM
 

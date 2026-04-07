@@ -30,7 +30,7 @@
 
 ### 方式一：OpenClaw
 
-从源码安装技能 https://github.com/LamKaGum/dida-cli-mcp
+安装技能 https://github.com/LamKaGum/dida-cli-mcp/blob/main/skill.json
 
 ### 方式二：NPM
 
