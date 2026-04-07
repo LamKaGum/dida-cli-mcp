@@ -28,10 +28,30 @@
 
 ## 📦 安装
 
-### 全局安装
+### 方式一：OpenClaw（一句话安装）
+
+```bash
+clawhub install https://github.com/LamKaGum/dida-cli-mcp
+```
+
+或添加到 OpenClaw 技能：
+```bash
+openclaw skills add dida-cli-mcp --from https://github.com/LamKaGum/dida-cli-mcp
+```
+
+### 方式二：NPM
 
 ```bash
 npm install -g dida-cli-mcp
+```
+
+### 方式三：源码安装
+
+```bash
+git clone https://github.com/LamKaGum/dida-cli-mcp.git
+cd dida-cli-mcp
+npm install
+npm link
 ```
 
 ### 验证安装

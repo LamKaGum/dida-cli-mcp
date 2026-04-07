@@ -28,10 +28,30 @@
 
 ## 📦 Installation
 
-### Global Installation
+### Option 1: OpenClaw (One-line install)
+
+```bash
+clawhub install https://github.com/LamKaGum/dida-cli-mcp
+```
+
+Or add to your OpenClaw skills:
+```bash
+openclaw skills add dida-cli-mcp --from https://github.com/LamKaGum/dida-cli-mcp
+```
+
+### Option 2: NPM
 
 ```bash
 npm install -g dida-cli-mcp
+```
+
+### Option 3: From Source
+
+```bash
+git clone https://github.com/LamKaGum/dida-cli-mcp.git
+cd dida-cli-mcp
+npm install
+npm link
 ```
 
 ### Verify Installation

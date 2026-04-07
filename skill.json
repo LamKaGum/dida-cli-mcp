@@ -1,0 +1,29 @@
+{
+  "name": "dida-cli-mcp",
+  "version": "0.1.1",
+  "description": "TickTick CLI with MCP support - task reminders, batch operations, and smart search",
+  "author": "LamKaGum",
+  "license": "MIT",
+  "homepage": "https://github.com/LamKaGum/dida-cli-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LamKaGum/dida-cli-mcp.git"
+  },
+  "keywords": ["ticktick", "dida365", "cli", "task", "todo", "mcp"],
+  "type": "cli-tool",
+  "entry": {
+    "bin": "dida"
+  },
+  "install": {
+    "npm": {
+      "global": true,
+      "package": "dida-cli-mcp"
+    }
+  },
+  "requirements": {
+    "node": ">=18"
+  },
+  "config": {
+    "env": []
+  }
+}
