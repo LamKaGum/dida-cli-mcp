@@ -1,6 +1,6 @@
 {
   "name": "dida-cli-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "TickTick CLI with MCP support - task reminders, batch operations, and smart search",
   "author": "LamKaGum",
   "license": "MIT",

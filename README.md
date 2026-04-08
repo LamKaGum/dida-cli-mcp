@@ -28,9 +28,23 @@
 
 ## 📦 Installation
 
-### Option 1: OpenClaw
+### Option 1: OpenClaw (Recommended for AI Agents)
 
-Install skill https://github.com/LamKaGum/dida-cli-mcp/blob/main/skill.json
+Install as an OpenClaw skill for enhanced AI integration:
+
+```bash
+# Via skill.json URL
+openclaw skill install https://github.com/LamKaGum/dida-cli-mcp/blob/main/skill.json
+
+# Or clone to skills directory
+git clone https://github.com/LamKaGum/dida-cli-mcp.git ~/.openclaw/workspace/skills/dida-cli-mcp
+```
+
+📄 **SKILL.md** provides comprehensive documentation including:
+- Detailed command reference
+- Batch operations & automation scripts
+- Troubleshooting guide
+- Advanced usage examples (Cron, Alfred, Raycast integration)
 
 ### Option 2: NPM
 
