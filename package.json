@@ -1,0 +1,54 @@
+{
+  "name": "dida-cli-mcp",
+  "version": "0.1.2",
+  "type": "module",
+  "description": "TickTick Command Line Tool - MCP Extended Edition with task reminders, batch operations, and smart search",
+  "main": "src/index.js",
+  "bin": {
+    "dida": "src/index.js"
+  },
+  "files": [
+    "src/",
+    "README.md",
+    "README_CN.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "jest",
+    "postinstall": "node -e \"console.log('\\n🎉 dida-cli-mcp 安装完成！\\n\\n快速开始：\\n  1. dida auth login    - 登录（OAuth 或 Token）\\n  2. dida task list     - 查看任务列表\\n  3. dida help          - 查看所有功能\\n')\""
+  },
+  "keywords": [
+    "ticktick",
+    "dida365",
+    "cli",
+    "task",
+    "todo",
+    "mcp",
+    "reminder",
+    "productivity"
+  ],
+  "author": "LamKaGum",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LamKaGum/dida-cli-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LamKaGum/dida-cli-mcp/issues"
+  },
+  "homepage": "https://github.com/LamKaGum/dida-cli-mcp#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^11.0.0",
+    "node-fetch": "^3.3.2",
+    "open": "^9.1.0"
+  },
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
