@@ -1,107 +1,133 @@
-# TickTick 官方 CLI — 滴答清单 Python 版
+# TickTick CLI — 滴答清单 MCP 增强版
 
 <p align="center">
   <a href="./README.md">English</a> |
   <a href="./README_CN.md">简体中文</a>
 </p>
 
-使用 **Dida365 官方 Open API** 直接管理滴答清单任务的 Python CLI 工具。
+一个用于管理滴答清单（TickTick / Dida365）任务的 CLI 工具，带有 **MCP 增强版** 功能 —— 提醒设置、批量操作和智能搜索。
 
-> **v2.0 重写**：从 TypeScript/Node 完全重写为 Python。使用 Dida365 官方 API 并内置凭证 — 无需手动注册应用。
+> **v1.1.0 更新**：内置默认凭证、智能环境检测、交互式登录。
+
+## v1.1.0 新特性
+
+🔑 **内置凭证** — 无需注册自己的应用。默认凭证已预配置，开箱即用。
+
+🖥️ **智能环境检测** — 自动检测服务器（无图形界面）或桌面环境，并推荐最佳登录方式。
+
+🤖 **交互式登录** — 首次运行时，CLI 会根据您的环境提示选择适当的认证方式。
 
 ## 功能特性
 
-- ✅ **官方 API**：直接集成 `dida365.com` Open API
+- ✅ **MCP 增强**：超越标准 API 的高级功能（提醒、批量操作、智能搜索）
 - 🔑 **内置凭证**：默认应用凭证已预配置
-- 🖥️ **服务器 & 桌面版**：支持服务器（直接输入 token）和桌面版（浏览器 OAuth）环境
-- 🧠 **智能检测**：自动检测运行环境并推荐合适的认证方式
-- 📦 **零安装**：使用 `uv run` 单文件直接执行 — 无需 pip 安装
-- 🎨 **精美输出**：表格、进度条、彩色终端输出
+- 🖥️ **服务器 & 桌面版**：支持服务器（token 输入）和桌面版（浏览器 OAuth）环境
+- 🧠 **智能检测**：自动检测环境并推荐合适的认证方式
+- ⏰ **任务提醒**：创建任务时设置截止日期和提醒
+- 📦 **批量操作**：一次完成多个任务
+- 🔍 **智能搜索**：跨项目搜索任务，支持过滤
+- 🎨 **精美输出**：彩色终端输出，带进度指示器
 
 ## 快速开始
 
-### 服务器环境（无浏览器 / Docker / 云服务器）
-
 ```bash
-# 直接输入 token — 无需浏览器
-./scripts/ticktick_oauth.py server-login --token "你的_access_token"
+# 安装
+git clone https://github.com/LamKaGum/dida-cli-mcp.git
+cd dida-cli-mcp
+npm install
 
-# 列出项目
-./scripts/ticktick_cli.py project list
+# 登录（交互式 — 自动检测您的环境）
+npm start auth login
 
 # 列出任务
-./scripts/ticktick_cli.py task list --project "收件箱"
-```
+npm start task list
 
-### 桌面版环境（带浏览器的本地电脑）
-
-```bash
-# 一键 OAuth，自动回调
-./scripts/ticktick_oauth.py login
-
-# 脚本会：
-# 1. 打印 OAuth 授权链接
-# 2. 打开浏览器（如果可用）
-# 3. 自动接收回调并保存 token
+# 创建带提醒的任务
+npm start task create "团队会议" --due "2024-01-15 14:00" --reminder 30
 ```
 
 ## 认证方式
 
-| 方式 | 适用环境 | 命令 | 说明 |
-|------|----------|------|------|
-| `server-login` | 服务器 / 无图形界面 | `server-login --token <token>` | 直接输入 token |
-| `login` | 桌面版 | `login` | 浏览器 OAuth 自动回调 |
-| `setup` | 任意 | `setup --client-id <id>` | 自定义应用凭证（可选） |
+### 交互式登录（推荐）
+
+```bash
+npm start auth login
+```
+
+CLI 会：
+1. **服务器环境** → 自动提示输入 access_token
+2. **桌面版环境** → 显示菜单：选择 OAuth（浏览器）或 Token 输入
+
+### Token 登录（服务器 / 无图形界面）
+
+```bash
+npm start auth login --token
+# 然后按提示输入您的 access_token
+```
+
+### OAuth 登录（桌面版）
+
+```bash
+npm start auth login
+# 选择选项 1：OAuth 登录（自动打开浏览器）
+```
 
 ## 命令参考
 
-### 项目管理
+### 认证
 
 ```bash
-./scripts/ticktick_cli.py project list              # 列出所有项目
-./scripts/ticktick_cli.py project list --json       # JSON 输出
+npm start auth login          # 交互式登录（自动检测环境）
+npm start auth login --token  # 强制使用 Token 输入模式
+npm start auth status         # 检查登录状态
+npm start auth logout        # 清除保存的 token
 ```
 
 ### 任务管理
 
 ```bash
-./scripts/ticktick_cli.py task list --project "收件箱"          # 按项目列出任务
-./scripts/ticktick_cli.py task create --summary "买牛奶"        # 创建任务
-./scripts/ticktick_cli.py task complete --id <task_id>          # 完成任务
-./scripts/ticktick_cli.py task delete --id <task_id>            # 删除任务
-./scripts/ticktick_cli.py task get --id <task_id>               # 任务详情
-./scripts/ticktick_cli.py task patch --id <id> --summary "新内容" # 更新任务
+npm start task list                    # 列出所有任务
+npm start task list --due today       # 今天到期的任务
+npm start task get <id>               # 任务详情
+npm start task create "买牛奶"      # 创建简单任务
+npm start task create "会议" --due "2024-01-15 14:00" --reminder 30  # 带提醒
+npm start task update <id>            # 更新任务
+npm start task complete <id>        # 完成任务
+npm start task delete <id>           # 删除任务
 ```
 
-### 任务标签
+### 清单管理
 
 ```bash
-./scripts/ticktick_cli.py tag list                  # 列出所有标签
-./scripts/ticktick_cli.py task list --tags "工作"     # 按标签筛选
+npm start project list                # 列出所有清单
+npm start project create "新清单"   # 创建新清单
+npm start project update <id>         # 更新清单
+npm start project delete <id>        # 删除清单
 ```
+
+## 环境检测
+
+CLI 自动检测您的环境：
+
+| 环境 | 检测条件 | 行为 |
+|------|----------|------|
+| **服务器** | 无 `DISPLAY` 环境变量，无 `open` 命令 | 自动提示输入 token |
+| **桌面版** | 有 `DISPLAY` 或 `open` 命令 | 显示 OAuth / Token 选择菜单 |
+
+使用 `npm start auth login --token` 强制使用 token 模式。
 
 ## 配置说明
 
-凭证存储在 `~/.config/ticktick-official/`：
+凭证存储在 `~/.config/dida-cli/`：
 
-- `token.env` — Access token（自动生成）
-- `app.env` — 自定义应用凭证（可选）
+- `config.json` — Access token 和设置
+
+无需手动配置凭证 — 内置默认值开箱即用。
 
 ## 环境要求
 
-- Python >= 3.10
-- [uv](https://github.com/astral-sh/uv)（推荐）或 `pip install httpx typer rich`
-
-## 与 v1.x (dida-cli-mcp) 的差异
-
-| 特性 | v1.x (TypeScript) | v2.x (Python) |
-|------|-------------------|---------------|
-| 运行环境 | Node.js >= 18 | Python >= 3.10 |
-| 认证方式 | 自定义 PKCE | 官方 OAuth 2.0 |
-| 凭证配置 | 手动设置 | 内置默认值 |
-| 服务器支持 | 有限 | 完整 (`server-login`) |
-| 安装方式 | `npm install` | `uv run`（无需安装） |
-| MCP 支持 | ✅ 支持 | ⏳ 计划中 |
+- Node.js >= 18
+- npm
 
 ## 开源协议
 

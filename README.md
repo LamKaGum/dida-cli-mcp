@@ -1,107 +1,133 @@
-# TickTick Official CLI — Dida365 Python Edition
+# TickTick CLI — Dida365 MCP Extended Edition
 
 <p align="center">
   <a href="./README.md">English</a> |
   <a href="./README_CN.md">简体中文</a>
 </p>
 
-A Python CLI tool for managing TickTick (滴答清单 / Dida365) tasks using the **official Open API** directly.
+A CLI tool for managing TickTick (滴答清单 / Dida365) tasks with **MCP Extended Edition** features — reminders, batch operations, and smart search.
 
-> **v2.0 Rewrite**: Complete rewrite from TypeScript/Node to Python. Uses Dida365 official API with built-in credentials — no manual app registration required.
+> **v1.1.0 Update**: Built-in default credentials, smart environment detection, and interactive login.
+
+## What's New in v1.1.0
+
+🔑 **Built-in Credentials** — No need to register your own app. Default credentials are pre-configured for instant use.
+
+🖥️ **Smart Environment Detection** — Automatically detects server (headless) vs desktop environment and suggests the best login method.
+
+🤖 **Interactive Login** — On first run, the CLI prompts you to choose the appropriate authentication method based on your environment.
 
 ## Features
 
-- ✅ **Official API**: Direct integration with `dida365.com` Open API
+- ✅ **MCP Extended**: Advanced features beyond standard API (reminders, batch operations, smart search)
 - 🔑 **Built-in Credentials**: Default app credentials pre-configured
 - 🖥️ **Server & Desktop**: Supports both server (token input) and desktop (OAuth browser) environments
 - 🧠 **Smart Detection**: Auto-detects environment and suggests appropriate auth method
-- 📦 **Zero Install**: Single-file executable with `uv run` — no pip install needed
-- 🎨 **Rich Output**: Beautiful terminal output with tables, progress, and colors
+- ⏰ **Task Reminders**: Set due dates and reminders when creating tasks
+- 📦 **Batch Operations**: Complete multiple tasks at once
+- 🔍 **Smart Search**: Search tasks across projects with filters
+- 🎨 **Rich Output**: Colorful terminal output with progress indicators
 
 ## Quick Start
 
-### Server Environment (Headless / Docker / Cloud)
-
 ```bash
-# Direct token login — no browser needed
-./scripts/ticktick_oauth.py server-login --token "your_access_token"
+# Install
+git clone https://github.com/LamKaGum/dida-cli-mcp.git
+cd dida-cli-mcp
+npm install
 
-# List projects
-./scripts/ticktick_cli.py project list
+# Login (interactive — auto-detects your environment)
+npm start auth login
 
 # List tasks
-./scripts/ticktick_cli.py task list --project "收件箱"
+npm start task list
+
+# Create a task with reminder
+npm start task create "Meeting with team" --due "2024-01-15 14:00" --reminder 30
 ```
 
-### Desktop Environment (Local Computer with Browser)
+## Authentication
+
+### Interactive Login (Recommended)
 
 ```bash
-# One-click OAuth with automatic callback
-./scripts/ticktick_oauth.py login
-
-# The script will:
-# 1. Print OAuth authorization link
-# 2. Open browser (if available)
-# 3. Auto-receive callback and save token
+npm start auth login
 ```
 
-## Authentication Methods
+The CLI will:
+1. **Server environment** → Automatically prompt for access_token input
+2. **Desktop environment** → Show a menu: choose OAuth (browser) or Token input
 
-| Method | Environment | Command | Description |
-|--------|------------|---------|-------------|
-| `server-login` | Server / Headless | `server-login --token <token>` | Direct token input |
-| `login` | Desktop | `login` | Browser OAuth with auto-callback |
-| `setup` | Any | `setup --client-id <id>` | Custom app credentials (optional) |
+### Token Login (Server / Headless)
+
+```bash
+npm start auth login --token
+# Then enter your access_token when prompted
+```
+
+### OAuth Login (Desktop)
+
+```bash
+npm start auth login
+# Choose option 1: OAuth Login (opens browser automatically)
+```
 
 ## Commands
 
-### Project Management
+### Authentication
 
 ```bash
-./scripts/ticktick_cli.py project list              # List all projects
-./scripts/ticktick_cli.py project list --json       # JSON output
+npm start auth login          # Interactive login (auto-detect environment)
+npm start auth login --token  # Force token input mode
+npm start auth status         # Check login status
+npm start auth logout        # Clear saved token
 ```
 
 ### Task Management
 
 ```bash
-./scripts/ticktick_cli.py task list --project "收件箱"          # List tasks by project
-./scripts/ticktick_cli.py task create --summary "Buy milk"     # Create task
-./scripts/ticktick_cli.py task complete --id <task_id>         # Complete task
-./scripts/ticktick_cli.py task delete --id <task_id>           # Delete task
-./scripts/ticktick_cli.py task get --id <task_id>              # Task details
-./scripts/ticktick_cli.py task patch --id <id> --summary "New" # Update task
+npm start task list                    # List all tasks
+npm start task list --due today       # Today's tasks
+npm start task get <id>               # Task details
+npm start task create "Buy milk"      # Create simple task
+npm start task create "Meeting" --due "2024-01-15 14:00" --reminder 30  # With reminder
+npm start task update <id>            # Update task
+npm start task complete <id>        # Complete task
+npm start task delete <id>           # Delete task
 ```
 
-### Task Tags
+### Project Management
 
 ```bash
-./scripts/ticktick_cli.py tag list                  # List all tags
-./scripts/ticktick_cli.py task list --tags "工作"     # Filter by tag
+npm start project list                # List all projects
+npm start project create "New List"   # Create new project
+npm start project update <id>         # Update project
+npm start project delete <id>        # Delete project
 ```
+
+## Environment Detection
+
+The CLI automatically detects your environment:
+
+| Environment | Detection | Behavior |
+|-------------|-----------|----------|
+| **Server** | No `DISPLAY` env, no `open` command | Auto-prompts for token input |
+| **Desktop** | Has `DISPLAY` or `open` command | Shows OAuth / Token choice menu |
+
+Override with `npm start auth login --token` to force token mode.
 
 ## Configuration
 
-Credentials are stored in `~/.config/ticktick-official/`:
+Credentials are stored in `~/.config/dida-cli/`:
 
-- `token.env` — Access token (auto-generated)
-- `app.env` — Custom app credentials (optional)
+- `config.json` — Access token and settings
+
+No manual credential setup needed — built-in defaults work out of the box.
 
 ## Requirements
 
-- Python >= 3.10
-- [uv](https://github.com/astral-sh/uv) (recommended) or `pip install httpx typer rich`
-
-## Differences from v1.x (dida-cli-mcp)
-
-| Feature | v1.x (TypeScript) | v2.x (Python) |
-|---------|-------------------|---------------|
-| Runtime | Node.js >= 18 | Python >= 3.10 |
-| Auth | Custom PKCE | Official OAuth 2.0 |
-| Credentials | Manual setup | Built-in defaults |
-| Server Support | Limited | Full (`server-login`) |
-| Install | `npm install` | `uv run` (no install) |
-| MCP | ✅ Supported | ⏳ Planned |
+- Node.js >= 18
+- npm
 
 ## License
 
