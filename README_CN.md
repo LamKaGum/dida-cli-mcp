@@ -1,5 +1,10 @@
 # TickTick 官方 CLI — 滴答清单 Python 版
 
+<p align="center">
+  <a href="./README.md">English</a> |
+  <a href="./README_CN.md">简体中文</a>
+</p>
+
 使用 **Dida365 官方 Open API** 直接管理滴答清单任务的 Python CLI 工具。
 
 > **v2.0 重写**：从 TypeScript/Node 完全重写为 Python。使用 Dida365 官方 API 并内置凭证 — 无需手动注册应用。

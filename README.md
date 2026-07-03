@@ -1,5 +1,10 @@
 # TickTick Official CLI — Dida365 Python Edition
 
+<p align="center">
+  <a href="./README.md">English</a> |
+  <a href="./README_CN.md">简体中文</a>
+</p>
+
 A Python CLI tool for managing TickTick (滴答清单 / Dida365) tasks using the **official Open API** directly.
 
 > **v2.0 Rewrite**: Complete rewrite from TypeScript/Node to Python. Uses Dida365 official API with built-in credentials — no manual app registration required.
