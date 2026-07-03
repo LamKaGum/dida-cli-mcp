@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "registry": "https://clawhub.ai",
+  "slug": "ticktick-official-cli",
+  "installedVersion": "1.0.1",
+  "installedAt": 1782988405844,
+  "artifact": {
+    "kind": "archive",
+    "sha256": "3300bb341ba3926d156ffde9a2bbc41884443e2b6188f93ed383d842fb68cf31",
+    "integrity": "sha256-MwC7NBujkm0Vb/3porvEGIREPithiPk+04PYQvtozzE="
+  },
+  "skillFile": {
+    "path": "SKILL.md",
+    "sha256": "3b86577a28628d5819021bd5b584bddfb3e0cb2c615ceef1514786a43ab80b59"
+  }
+}
